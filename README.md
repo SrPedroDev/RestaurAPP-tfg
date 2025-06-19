@@ -1,6 +1,6 @@
 # Proyecto RestaurAPP - Repositorio Unificado
 
-¡Bienvenido al repositorio unificado del proyecto **RestaurAPP**! 🎉
+¡Bienvenido al repositorio unificado del proyecto **RestaurAPP**!
 
 ---
 
