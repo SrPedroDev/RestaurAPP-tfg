@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h2>Confirmar Edición de Mesa</h2>
+{% endblock %}
+
+{% block contenidoApartado %}
+    <div class="alert alert-warning">
+        <p>Estás a punto de editar la mesa <strong>#{{ mesa.id }} - {{ mesa.identificador }}</strong>.</p>
+
+        {% if hayReservas %}
+            <p class="text-danger">
+                ⚠ Esta mesa tiene reservas futuras. Si continúas, dichas reservas serán eliminadas.
+            </p>
+        {% else %}
+            <p>No hay reservas futuras asociadas a esta mesa.</p>
+        {% endif %}
+    </div>
+
+    <a href="{{ path('gestion_mesas_editar', {id: mesa.id}) }}" class="btn btn-primary">Continuar con la edición</a>
+    <a href="{{ path('gestion_mesas_index') }}" class="btn btn-secondary">Cancelar</a>
+{% endblock %}

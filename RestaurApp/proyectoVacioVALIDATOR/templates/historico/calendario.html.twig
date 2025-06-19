@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h1>Histórico de Reservas Finalizadas</h1>
+<a href="{{ path('gestion_sala_menu') }}" class="badge bg-primary"> -- VOLVER --</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+{% set hoy = "now"|date("Y-m-d") %}
+
+{% for calendario in calendarios %}
+    <h2>
+        {{ calendario.nombreMes }}
+        {% if calendario.esMesActual %}
+            <span class="badge bg-success ms-2">Mes actual</span>
+        {% endif %}
+    </h2>
+
+    <table class="table table-bordered table-striped calendario-tabla">
+        <thead>
+            <tr>
+                <th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th>
+                <th>Viernes</th><th>Sábado</th><th>Domingo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for semana in calendario.semanas %}
+                <tr>
+                    {% for dia in semana %}
+                        {% if dia %}
+                            {% set fechaDia = dia.fecha|date("Y-m-d") %}
+                            <td class="{% if fechaDia == hoy %}table-info{% endif %}">
+                                <strong>{{ dia.fecha.format('d') }}</strong><br>
+
+                                {% if dia.reservas is not empty %}
+                                <a href="{{ path('historico_reservas_dia', {'fecha': fechaDia}) }}"><strong>Ver reservas</strong></a>
+
+                                {% else %}
+                                    <small class="text-muted">Sin reservas</small>
+                                {% endif %}
+                            </td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+layout.component.scss :host {
+  display: block;
+  min-height: 100vh;
+}
+
+.content-container {
+  padding-top: 150px;
+  width: 100%;
+  padding-left: 7%;
+  padding-right: 7%;
+  box-sizing: border-box;
+}

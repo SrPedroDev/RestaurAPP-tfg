@@ -1,0 +1,41 @@
+/* footer del menú */
+.menu-footer {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-divider {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  margin: 0 auto 2rem;
+}
+
+.menu-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu-notes p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.menu-notes strong {
+  color: #e9bd8c;
+  font-weight: 500;
+}
+
+* {
+  background-color: #000;
+}

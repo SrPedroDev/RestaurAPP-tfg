@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+
+{% block cabezaApartado %}
+<h1>Apartado de turnos</h1>
+<p>Configura los turnos de servicio de tu restaurante.</p>
+{% endblock %}
+
+
+
+{% block contenidoApartado %}
+<div class="row">
+        <div class="col-6">
+            <a href="{{ path('config_turno_general') }}" class="btn btn-warning btn-lg d-flex align-items-center justify-content-center gap-2">
+                Configurar Turnos Generales
+            </a>
+        </div>
+
+        <div class="col-6">
+            <a href="{{ path('gestion_turnos') }}" class="btn btn-warning btn-lg d-flex align-items-center justify-content-center gap-2">
+                  Editar turnos por día
+            </a>
+        </div>
+</div>
+
+{% endblock %}

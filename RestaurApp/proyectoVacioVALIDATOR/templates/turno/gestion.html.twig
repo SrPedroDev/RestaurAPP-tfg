@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h1>Calendario de Turnos</h1>
+<a href="{{ path('inicio_turno') }}" class="badge bg-primary"> -- VOLVER --</a>
+
+{% endblock %}
+
+{% block contenidoApartado %}
+
+{% for calendario in calendarios %}
+    <h2>{{ calendario.nombreMes }}</h2>
+    <table class="table table-bordered table-striped calendario-tabla">        
+        <thead>
+            <tr>
+                <th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th><th>Domingo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for semana in calendario.semanas %}
+                <tr>
+                    {% for dia in semana %}
+                        {% if dia %}
+                                <td>
+                                {% set hoy = "now"|date("Y-m-d") %}
+                                {% set fechaDia = dia.fecha|date("Y-m-d") %}
+
+                                {% if fechaDia >= hoy %}
+                                    <a href="{{ path('turnos_mostrar_dia', {'fecha': dia.fecha.format('Y-m-d')}) }}">
+                                    <strong>{{ dia.fecha.format('d') }}</strong>
+                                    </a>
+                                {% else %}
+                                    <strong>{{ dia.fecha.format('d') }}</strong>
+                                {% endif %}
+
+                                <br>
+                                {% for turno in dia.turnos %}
+                                    <div>
+                                    {{ turno.tipo }}<br>
+                                    {{ turno.horaInicio|date('H:i') }} - {{ turno.horaFin|date('H:i') }}
+                                    <br>
+                                    <br>
+                                    </div>
+                                {% else %}
+                                    <div>No hay turnos</div>
+                                {% endfor %}
+                                </td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoApartado %}
+  <h2>Productos en {{ categoria|replace({'-': ' '})|capitalize }}</h2>
+
+  <a href="#" class="btn btn-success mb-3">Crear nuevo producto</a>
+
+  <ul class="list-group">
+    {% for producto in productos %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ producto.nombre }} — {{ producto.precio|number_format(2, ',', '.') }} €
+        <!-- Aquí puedes poner botones para editar, borrar, etc -->
+      </li>
+    {% else %}
+      <li class="list-group-item">No hay productos en esta categoría.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+{% block menuLateral %}
+  {# Aquí puedes incluir un menú lateral o dejarlo vacío #}
+{% endblock %}
+
+{% block cabezaApartado %}
+  <h4>Productos en {{ categoria|replace({'-': ' '})|capitalize }}</h4>
+{% endblock %}

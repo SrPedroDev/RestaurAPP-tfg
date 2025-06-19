@@ -1,0 +1,82 @@
+{
+  "HEADER": {
+    "HOME": "Home",
+    "ABOUT": "About Us",
+    "CONTACT": "Contact",
+    "RESERVE": "Book a table"
+  },
+  "LANGUAGES": {
+    "ENGLISH": "English",
+    "SPANISH": "Spanish"
+  },
+  "LANDPAGE": {
+    "TITLE": "RestaurApp",
+    "TAGLINE": "TAPAS AND TRADITION",
+    "HIGHLIGHT_CUISINE": "Mediterranean cuisine",
+    "HIGHLIGHT_WINE": "Wine selection",
+    "HIGHLIGHT_FAMILY": "Family-friendly",
+    "MENU": "MENU",
+    "RESERVE": "BOOK A TABLE"
+  },
+  "ABOUT_SECTION": {
+    "TITLE": "About Us",
+    "TEXT": "Every bite tells a story: of our land, our traditions, and our flavors. In our Mediterranean kitchen, authenticity comes to life with fresh ingredients and a passion for doing things right. Feel at home while enjoying an experience that nourishes both body and soul."
+  },
+  "CONTACT_SECTION": {
+    "TITLE": "Contact",
+    "FORM_TITLE": "Send us a message",
+    "NAME_LABEL": "Full name",
+    "NAME_PLACEHOLDER": "Your full name",
+    "EMAIL_LABEL": "Email",
+    "EMAIL_PLACEHOLDER": "your.email@example.com",
+    "SUBJECT_LABEL": "Subject",
+    "SUBJECT_PLACEHOLDER": "Select a subject",
+    "MESSAGE_LABEL": "Message",
+    "MESSAGE_PLACEHOLDER": "Write your message here...",
+    "SUBJECT_OPTIONS": {
+      "DEFAULT": "Select a subject",
+      "RESERVA": "Reservation inquiry",
+      "EVENTO": "Events and celebrations",
+      "MENU": "Menu inquiry",
+      "SUGERENCIA": "Suggestions",
+      "QUEJA": "Complaints or claims",
+      "OTRO": "Other"
+    },
+    "BUTTON_TEXT": "Send message",
+    "SUCCESS_TITLE": "Message sent successfully!",
+    "SUCCESS_TEXT": "Thank you for contacting us. We will get back to you soon.",
+    "CONTACT_INFO_TITLE": "Contact information",
+    "PHONE_LABEL": "Phone",
+    "HOURS_LABEL": "Hours",
+    "HOURS_VALUE": "Tue–Sun: 13:00-16:00\n19:00-23:30",
+    "EMAIL_LABEL_INFO": "Email"
+  },
+  "FOOTER": {
+    "FIND_US_TITLE": "Find Us",
+    "RESTAURANT_TYPE": "RestaurApp",
+    "RESTAURANT_DESCRIPTION": "Mediterranean cuisine restaurant",
+    "ADDRESS": "C. Maestro Pedro Perez Abadia, 2A, 30100 Murcia",
+    "COPYRIGHT": "© 2025 DAW José Planes. All rights reserved.",
+    "MAP_TITLE": "Location at IES José Planes"
+  },
+  "DRINKS_SECTION": {
+    "TITLE": "Drinks",
+    "SUBTITLE": "Accompany your dishes with our selection of delicately chosen beverages"
+  },
+  "STARTERS": {
+    "TITLE": "Starters",
+    "SUBTITLE": "We begin the culinary experience with a selection of appetizers that awaken the senses"
+  },
+  "FIRST_COURSES": {
+    "TITLE": "First Courses",
+    "SUBTITLE": "Discover our selection of first courses, designed to whet your appetite and surprise you"
+  },
+  "MAIN_COURSES": {
+    "TITLE": "Main Courses",
+    "SUBTITLE": "We continue the culinary experience with a selection of dishes perfectly crafted for your enjoyment"
+  },
+  "DESSERTS": {
+    "TITLE": "Desserts",
+    "SUBTITLE": "Sweeten your experience with our selection of homemade desserts"
+  }
+}

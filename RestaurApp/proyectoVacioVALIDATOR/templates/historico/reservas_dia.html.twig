@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h1>Reservas del día {{ fecha|date('d/m/Y') }}</h1>
+<a href="{{ path('historico_reservas_calendario') }}" class="badge bg-primary"> -- VOLVER AL CALENDARIO --</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+    {% if reservas is empty %}
+        <p>No hay reservas para este día.</p>
+    {% else %}
+        <ul class="list-group">
+            {% for reserva in reservas %}
+                <li class="list-group-item">
+                    <a href="{{ path('historico_reserva_detalle', {'id': reserva.id}) }}">
+                        {{ reserva.nombreCliente }} - Mesa {{ reserva.mesa ? reserva.mesa.identificador : 'N/A' }} - {{ reserva.fechaHora|date('H:i') }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

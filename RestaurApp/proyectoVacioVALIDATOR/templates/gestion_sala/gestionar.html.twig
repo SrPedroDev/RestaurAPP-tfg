@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h1>Gestión de Atención</h1>
+<a href="{{ path('reservas_hoy') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+<div class="container mt-3">
+
+    <h2>Mesa {{ atencion.reserva.mesa.identificador }} – {{ atencion.reserva.nombreCliente }}</h2>
+    <p><strong>Comensales:</strong> {{ atencion.reserva.numeroComensales }}</p>
+
+    <hr>
+
+    <h4>Añadir producto al pedido</h4>
+    <form method="POST" class="row g-3 mb-4">
+        <div class="col-md-6">
+            <label for="producto" class="form-label">Producto</label>
+            <select name="producto_id" id="producto" class="form-select" required>
+                {% for categoria, productos in productosPorCategoria %}
+                    <optgroup label="{{ categoria }}">
+                        {% for producto in productos %}
+                            <option value="{{ producto.id }}">{{ producto.nombre }}</option>
+                        {% endfor %}
+                    </optgroup>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="cantidad" class="form-label">Cantidad</label>
+            <input type="number" name="cantidad" id="cantidad" class="form-control" min="1" value="1" required>
+        </div>
+        <div class="col-md-3 align-self-end">
+            <button type="submit" class="btn btn-primary w-100">Añadir</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <h4>Pedido actual</h4>
+    {% if pedido.items|length > 0 %}
+        <table class="table table-bordered align-middle">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio unitario</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set total = 0 %}
+                {% for item in pedido.items %}
+                    {% set subtotal = item.cantidad * item.precioUnitario %}
+                    {% set total = total + subtotal %}
+                    <tr>
+                        <td>{{ item.nombreProducto }}</td>
+                        <td>{{ item.cantidad }}</td>
+                        <td>{{ item.precioUnitario|number_format(2, ',', '.') }} €</td>
+                        <td>{{ subtotal|number_format(2, ',', '.') }} €</td>
+                        <td class="text-end">
+                            <a href="{{ path('editar_pedido_item', { id: item.id }) }}" class="btn btn-sm btn-outline-warning">✏️</a>
+                            <form method="POST" action="{{ path('eliminar_pedido_item', { id: item.id }) }}" onsubmit="return confirm('¿Eliminar este producto del pedido?');" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">🗑️</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="3">Total</th>
+                    <th>{{ total|number_format(2, ',', '.') }} €</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <div class="alert alert-info">No hay productos añadidos aún.</div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h2>Limitación de permisos</h2>
+{% endblock %}
+
+{% block contenidoApartado %}
+    <div class="alert alert-danger">
+        <p>No posees los permisos necesarios para acceder a este apartado</p>
+    </div>
+
+    <a href="{{ path('inicio') }}" class="btn btn-secondary">Volver al inicio</a>
+{% endblock %}

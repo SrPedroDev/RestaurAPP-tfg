@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+    <h2>{{ modo == 'crear' ? 'Crear' : 'Editar' }} turno de {{ turno.tipo }} para el {{ turno.fecha|date('d/m/Y') }}</h2>
+    <a href="{{ path('turnos_mostrar_dia', { fecha: turno.fecha|date('Y-m-d') }) }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+
+{% block contenidoApartado %}
+    <form method="post">
+        <input type="hidden" name="tipo" value="{{ turno.tipo }}">
+
+        <div class="form-group">
+            <label for="hora_inicio">Hora de inicio:</label>
+            <input type="time" class="form-control" name="hora_inicio" id="hora_inicio" required value="{{ turno.horaInicio ? turno.horaInicio|date('H:i') : '' }}">
+        </div>
+
+        <div class="form-group">
+            <label for="hora_fin">Hora de fin:</label>
+            <input type="time" class="form-control" name="hora_fin" id="hora_fin" required value="{{ turno.horaFin ? turno.horaFin|date('H:i') : '' }}">
+        </div>
+
+        <div class="form-group">
+            <label for="reservas_por_turno">Número de reservas por Mesa:</label>
+            <input type="number" class="form-control" name="reservas_por_turno" id="reservas_por_turno" min="1" required value="{{ turno.reservasPorMesa ?? '' }}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{ modo == 'crear' ? 'Crear' : 'Guardar' }}</button>
+    </form>
+{% endblock %}

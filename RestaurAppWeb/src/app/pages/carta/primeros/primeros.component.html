@@ -1,0 +1,32 @@
+<div class="entrantes-container">
+  <div class="menu-header">
+    <div class="section-title">{{ "FIRST_COURSES.TITLE" | translate }}</div>
+    <div class="menu-divider"></div>
+    <p class="menu-subtitle">
+      {{ "FIRST_COURSES.SUBTITLE" | translate }}
+    </p>
+  </div>
+
+  <div class="entrantes-grid">
+    <mat-card *ngFor="let primero of primeros" class="entrante-card">
+      <div class="imagen-container">
+        <img
+          mat-card-image
+          [src]="primero.imagen"
+          [alt]="primero.nombre"
+          class="entrante-imagen"
+        />
+        <div class="precio-overlay">
+          <span class="precio">{{ primero.precio }}€</span>
+        </div>
+      </div>
+
+      <mat-card-content class="card-content">
+        <div class="entrante-header">
+          <h3 class="entrante-nombre">{{ primero.nombre }}</h3>
+        </div>
+        <p class="entrante-descripcion">{{ primero.descripcion }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

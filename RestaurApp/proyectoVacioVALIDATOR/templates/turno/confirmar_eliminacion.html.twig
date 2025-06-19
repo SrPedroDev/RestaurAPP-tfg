@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+    <h2>Confirmar cambios en el turno</h2>
+{% endblock %}
+
+{% block contenidoApartado %}
+
+    <p><strong>Tipo:</strong> {{ turno.tipo }}</p>
+    <p><strong>Horario:</strong> {{ turno.horaInicio|date('H:i') }} - {{ turno.horaFin|date('H:i') }}</p>
+
+    <div class="alert alert-danger">
+        <strong>Advertencia:</strong> Este turno tiene reservas asociadas. Eliminarlo implicará borrar todas las reservas.
+    </div>
+
+    <form method="post" action="{{ path('turno_eliminar_confirmar') }}">
+        <input type="hidden" name="id" value="{{ turno.id }}">
+        <button type="submit">Confirmar y eliminar</button>
+        <a href="{{ path('turnos_mostrar_dia', {'fecha': turno.fecha|date('Y-m-d')}) }}">Cancelar</a>
+    </form>
+{% endblock %}

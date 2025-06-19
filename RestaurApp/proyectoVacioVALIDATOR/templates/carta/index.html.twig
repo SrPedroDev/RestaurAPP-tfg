@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoApartado %}
+  <h2>Nuestra Carta</h2>
+
+  <div class="d-flex gap-3 flex-wrap">
+    {% for slug, clase in categorias %}
+      <a href="{{ path('carta_categoria', {'categoria': slug}) }}" class="btn btn-warning">
+        {{ slug|replace({'-': ' '})|capitalize }}
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}

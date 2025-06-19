@@ -1,0 +1,163 @@
+.footer-section {
+  background-color: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 2rem 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.contact-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-column h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.5px;
+}
+
+.contact-info {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.contact-info .company-name {
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.contact-info .service-type {
+  color: #e9bd8c;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+}
+
+.contact-info p {
+  margin: 0.2rem 0;
+  color: #cccccc;
+  font-weight: 300;
+}
+
+.contact-info a {
+  color: #e9bd8c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #d4a574;
+}
+
+.map-column {
+  flex-shrink: 0;
+}
+
+.map-container {
+  width: 280px;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(20%) contrast(1.1);
+}
+
+.footer-bottom {
+  border-top: 1px solid #404040;
+  margin-top: 1.5rem;
+  padding: 1rem 2rem 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #999999;
+  margin: 0;
+  font-weight: 300;
+}
+
+.footer-bottom span {
+  color: #e9bd8c;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .main-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-content p {
+    font-size: 1.1rem;
+  }
+
+  .footer-section {
+    padding: 1.5rem 0;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .map-container {
+    width: 100%;
+    max-width: 320px;
+    height: 160px;
+    margin: 0 auto;
+  }
+
+  .footer-bottom {
+    padding: 1rem 1.5rem 0;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 3rem 1.5rem;
+  }
+
+  .main-content h1 {
+    font-size: 2rem;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .map-container {
+    height: 140px;
+  }
+
+  .footer-bottom {
+    padding: 1rem 1rem 0;
+  }
+}

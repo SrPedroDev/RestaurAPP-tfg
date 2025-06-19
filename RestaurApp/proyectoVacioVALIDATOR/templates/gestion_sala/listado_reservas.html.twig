@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+    <h2>Proximas Reservas</h2>
+    <a href="{{ path('gestion_sala_menu') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+    {% if reservasPorDia is empty %}
+        <div class="alert alert-info">No hay reservas futuras registradas.</div>
+    {% else %}
+        {% for fecha, reservas in reservasPorDia %}
+            <div class="card mb-4">
+                <div class="card-header bg-light fw-bold">
+                    {{ fecha|date('d/m/Y') }}
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for reserva in reservas %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>{{ reserva.nombreCliente }}</strong> - 
+                                Hora de inicio: {{ reserva.fechaHora|date('H:i') }} - 
+                                Mesa: {{ reserva.mesa.identificador }} - 
+                                Comensales: {{ reserva.numeroComensales }}<br>
+                                Tel: {{ reserva.telefono }} | Email: {{ reserva.email }}
+                            </div>
+                            <form method="POST" action="{{ path('gestion_reserva_eliminar', {'id': reserva.id}) }}" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva?');">
+                                <button class="btn btn-sm btn-danger">Eliminar</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

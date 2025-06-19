@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h2>Opciones de para realizar la Reserva</h2>
+<a href="{{ path('gestion_sala_estado') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+<div class="container mt-5">
+    <h3 class="text-center mb-4">¿Cómo deseas hacer la reserva?</h3>
+
+    <div class="row justify-content-center mt-5 gap-4">
+        <div class="col-md-5 d-flex justify-content-center">
+            <a href="{{ path('reserva_asignar', {'id': momento.id}) }}" class="btn btn-success w-100 py-3">
+                Asignar mesa directamente
+            </a>
+        </div>
+        <div class="col-md-5 d-flex justify-content-center">
+            <a href="{{ path('reserva_crear_formulario', {'id': momento.id}) }}" class="btn btn-primary w-100 py-3">
+                Crear reserva completa
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

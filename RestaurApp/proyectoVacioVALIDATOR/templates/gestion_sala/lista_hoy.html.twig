@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+         <h1 class="mb-0">Reservas de Hoy</h1>
+        <a href="{{ path('gestion_sala_menu') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+    {% for identificador, reservas in agrupadasPorMesa %}
+        <div class="mb-5">
+            <h2 class="border-bottom pb-2 mb-3 text-primary">Mesa {{ identificador }}</h2>
+            
+            <div class="row g-3">
+            {% for reserva in reservas %}
+                <div class="col-md-6">
+                    <div class="card shadow-sm border-primary">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ reserva.nombreCliente }}
+                                <span class="badge bg-info text-dark ms-2">
+                                    {{ reserva.numeroComensales }} comensales
+                                </span>
+                            </h5>
+
+                            <p class="card-text mb-1">
+                                <strong>Hora:</strong> {{ reserva.fechaHora|date('H:i') }}
+                            </p>
+                            <p class="card-text text-muted mb-2">
+                                Tel: {{ reserva.telefono }} | {{ reserva.email }}
+                            </p>
+
+                            {# --- Atención lógica --- #}
+                            {% if reserva.atencion is null %}
+                                <form method="post" action="{{ path('crear_atencion', { id: reserva.id }) }}">
+                                    <button class="btn btn-sm btn-success">🟢 Comenzar atención</button>
+                                </form>
+                            {% else %}
+                                {% if reserva.atencion.fin is not null %}
+                                    <div class="alert alert-success p-2 mt-2 mb-0">
+                                        ✅ Atención finalizada a las {{ reserva.atencion.fin|date('H:i') }}
+                                    </div>
+                                {% else %}
+                                    <form method="post" action="{{ path('finalizar_atencion', { id: reserva.atencion.id }) }}">
+                                        <button class="btn btn-sm btn-danger">🔴 Finalizar atención</button>
+                                        <a href="{{ path('gestion_atencion', { id: reserva.atencion.id }) }}" class="btn btn-sm btn-secondary">Gestionar atención</a>
+                                    </form>
+
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+{% endblock %}

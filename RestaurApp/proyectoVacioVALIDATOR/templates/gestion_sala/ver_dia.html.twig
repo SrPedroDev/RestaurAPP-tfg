@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+{% block cabezaApartado %}
+<h2>GESTION DE SALA: Turnos del día {{ fecha|date('d/m/Y') }}</h2>
+<a href="{{ path('gestion_sala_menu') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+
+{% block contenidoApartado %}
+{% for tipo in ['COMIDAS', 'CENAS'] %}
+    <div class="d-flex flex-column align-items-center mt-4">
+        <h3>Turno de {{ tipo|capitalize }}</h3>
+
+        {% if turnos[tipo] %}
+            <p><strong>Inicio:</strong> {{ turnos[tipo].horaInicio|date('H:i') }}</p>
+            <p><strong>Fin:</strong> {{ turnos[tipo].horaFin|date('H:i') }}</p>
+            <p><strong>Reservas por Mesa:</strong> {{ turnos[tipo].reservasPorMesa }}</p>
+
+            <a href="{{ path('sala_disponibilidad', { id: turnos[tipo].id }) }}" class="badge bg-primary">Consultar disponibilidad</a>
+
+        {% else %}
+            <p>No hay turno de {{ tipo }} creado.</p>
+        {% endif %}
+    </div>
+{% endfor %}
+{% endblock %}

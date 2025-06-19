@@ -1,0 +1,44 @@
+<div class="landpage" id="inicio">
+  <div class="content-container">
+    <h1>{{ "LANDPAGE.TITLE" | translate }}</h1>
+    <div class="tagline">
+      <span class="accent-line"></span>
+      <p>{{ "LANDPAGE.TAGLINE" | translate }}</p>
+      <span class="accent-line"></span>
+    </div>
+    <div class="highlights">
+      <div class="highlight-item">
+        <div class="highlight-icon">
+          <mat-icon>restaurant</mat-icon>
+        </div>
+        <p>{{ "LANDPAGE.HIGHLIGHT_CUISINE" | translate }}</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">
+          <mat-icon>wine_bar</mat-icon>
+        </div>
+        <p>{{ "LANDPAGE.HIGHLIGHT_WINE" | translate }}</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">
+          <mat-icon>group</mat-icon>
+        </div>
+        <p>{{ "LANDPAGE.HIGHLIGHT_FAMILY" | translate }}</p>
+      </div>
+    </div>
+    <div class="botones_landpage">
+      <!-- el router link nos permitira cargar el menu usando el RouterModule de angular, permitiendo no tener que recargar la página -->
+      <a mat-fab extended class="btn-menu" [routerLink]="['/menu']">
+        <mat-icon>menu_book</mat-icon>
+        {{ "LANDPAGE.MENU" | translate }}
+      </a>
+      <button mat-fab extended class="btn-reserva">
+        <mat-icon>calendar_month</mat-icon>
+        {{ "LANDPAGE.RESERVE" | translate }}
+      </button>
+    </div>
+    <!-- <div class="horario">
+      <p>{{ 'LANDPAGE.SCHEDULE' | translate }}</p>
+    </div> -->
+  </div>
+</div>

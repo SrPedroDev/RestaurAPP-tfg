@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h2>Gestión de Mesas</h2>
+<a href="{{ path('gestion_mesas_nueva') }}" class="btn btn-success mb-3">+ Nueva Mesa</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Identificador</th>
+            <th>Nº Comensales</th>
+             <th>Operativa</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mesa in mesas %}
+            <tr>
+                <td>{{ mesa.id }}</td>
+                <td>{{ mesa.identificador }}</td>
+                <td>{{ mesa.capacidad }}</td>
+                <td>
+                        {% if mesa.operativa %}
+                            <span class="badge text-bg-success">Sí</span>
+                        {% else %}
+                            <span class="badge text-bg-danger">No</span>
+                        {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('gestion_mesas_confirmar_edicion', {id: mesa.id}) }}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{{ path('gestion_mesas_eliminar', {id: mesa.id}) }}" class="btn btn-sm btn-danger"
+                       onclick="return confirm('¿Estás seguro de que quieres eliminar esta mesa? Se eliminarán también sus reservas futuras.');">Eliminar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr><td colspan="5">No hay mesas registradas.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

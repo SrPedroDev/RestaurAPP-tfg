@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+.landpage {
+  margin: 0;
+  padding: 0;
+  background-image: url("/assets/images/fondo2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  color: white;
+  display: block;
+}
+
+.landpage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.6)
+  );
+  z-index: 1;
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand-logo {
+  margin-bottom: 1rem;
+}
+
+.brand-logo img {
+  border-radius: 50%;
+  border: 3px solid #e9bd8c;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.landpage h1 {
+  font-family: "Sansita Swashed", cursive;
+  font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0 0 0.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+}
+
+.tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.tagline p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0 1rem;
+  color: #e9bd8c;
+}
+
+.accent-line {
+  height: 1px;
+  width: 80px;
+  background-color: #e9bd8c;
+}
+
+.highlights {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.highlight-item {
+  flex: 1;
+  padding: 0 1rem;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.highlight-icon {
+  background-color: rgba(248, 197, 55, 0.2);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem;
+  border: 1px solid #e9bd8c;
+}
+
+.highlight-icon mat-icon {
+  font-size: 28px;
+  color: #e9bd8c;
+}
+
+.highlight-item p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.botones_landpage {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.botones_landpage button[mat-fab][extended] {
+  padding: 0.75rem 1.5rem;
+  height: 50px;
+  min-width: 180px;
+  border: 2px solid #e9bd8c !important;
+  border-radius: 10px;
+  background-color: transparent !important;
+  color: #e9bd8c !important;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+  box-shadow: none !important;
+}
+
+.botones_landpage button[mat-fab][extended]:hover {
+  background-color: rgba(233, 189, 140, 0.2) !important;
+}
+
+.botones_landpage button[mat-fab][extended] mat-icon {
+  color: #e9bd8c !important;
+}
+
+::ng-deep .mat-mdc-fab,
+::ng-deep .mat-mdc-extended-fab {
+  --mdc-fab-container-color: transparent !important;
+  --mat-fab-foreground-color: #e9bd8c !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .mat-mdc-fab,
+::ng-deep .mat-mdc-extended-fab {
+  --mdc-fab-container-color: transparent !important;
+  --mat-fab-foreground-color: #e9bd8c !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  .landpage h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+  }
+
+  .highlights {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .highlight-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .tagline p {
+    font-size: 0.9rem;
+  }
+
+  .accent-line {
+    width: 40px;
+  }
+}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+    <h2>Apartado Gestión de Sala</h2>
+{% endblock %}
+
+{% block contenidoApartado %}
+<div class="d-flex justify-content-center flex-column mt-4 gap-5">
+    <a href="{{ path('gestion_mostrar_turnos', { 'fecha': fechaHoy }) }}" class="btn btn-warning btn-lg">Disponibilidad del día</a>
+    
+    <a href="{{ path('gestion_sala_estado') }}" class="btn btn-warning btn-lg">Ver calendario de Apertura</a>
+    
+    <a href="{{ path('gestion_reservas_listado') }}" class="btn btn-warning btn-lg">Proximas reservas</a>
+
+    <a href="{{ path('reservas_hoy') }}" class="btn btn-warning btn-lg">Atención de mesas</a>
+
+</div>
+{% endblock %}

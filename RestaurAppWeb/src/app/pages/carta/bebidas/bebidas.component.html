@@ -1,0 +1,30 @@
+<div class="entrantes-container">
+  <div class="menu-header">
+    <div class="section-title">{{ "DRINKS_SECTION.TITLE" | translate }}</div>
+    <div class="menu-divider"></div>
+    <p class="menu-subtitle">
+      {{ "DRINKS_SECTION.SUBTITLE" | translate }}
+    </p>
+  </div>
+  <div class="entrantes-grid">
+    <mat-card *ngFor="let bebida of bebidas" class="entrante-card">
+      <div class="imagen-container">
+        <img
+          mat-card-image
+          [src]="bebida.imagen"
+          [alt]="bebida.nombre"
+          class="entrante-imagen"
+        />
+        <div class="precio-overlay">
+          <span class="precio">{{ bebida.precio }}€</span>
+        </div>
+      </div>
+      <mat-card-content class="card-content">
+        <div class="entrante-header">
+          <h3 class="entrante-nombre">{{ bebida.nombre }}</h3>
+        </div>
+        <p class="entrante-descripcion">{{ bebida.descripcion }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

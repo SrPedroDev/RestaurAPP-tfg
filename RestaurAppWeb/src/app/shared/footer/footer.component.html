@@ -1,0 +1,38 @@
+<footer class="footer-section">
+  <div class="footer-container">
+    <div class="contact-column">
+      <h3>{{ "FOOTER.FIND_US_TITLE" | translate }}</h3>
+      <div class="contact-info">
+        <p class="service-type">{{ "FOOTER.RESTAURANT_TYPE" | translate }}</p>
+
+        <p class="company-name"></p>
+        <p>{{ "FOOTER.RESTAURANT_DESCRIPTION" | translate }}</p>
+
+        <p>{{ "FOOTER.ADDRESS" | translate }}</p>
+        <p>
+          <a href="tel:968 123 456">968 123 456</a> |
+          <a href="mailto:restaurapp.tfg@gmail.com">info&#64;tuempresa.com</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="map-column">
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25143.605524749495!2d-1.158337495635371!3d38.024929006353524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6381a5304e3067%3A0x678e16ec85057f1!2sIES%20Jos%C3%A9%20Planes!5e0!3m2!1ses!2ses!4v1748555635376!5m2!1ses!2ses"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          [title]="'FOOTER.MAP_TITLE' | translate"
+        >
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      {{ "FOOTER.COPYRIGHT" | translate }}
+    </p>
+  </div>
+</footer>

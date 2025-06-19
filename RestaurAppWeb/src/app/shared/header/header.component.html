@@ -1,0 +1,33 @@
+<div class="header" [ngClass]="{ scrolled: isScrolled }">
+  <!-- LOGO DEL HEADER -->
+  <div class="logo">
+    <a href="#">
+      <img src="assets/images/logo2.png" alt="Logo" class="logo-image" />
+    </a>
+  </div>
+
+  <!-- NAVBAR EN SÍ -->
+  <nav class="navbar" [ngClass]="{ 'navbar-mobile': isMenuOpen() }">
+    <a (click)="navigateToSection('inicio')" style="cursor: pointer">
+      {{ "HEADER.HOME" | translate }}
+    </a>
+    <a (click)="navigateToSection('about')" style="cursor: pointer">
+      {{ "HEADER.ABOUT" | translate }}
+    </a>
+    <a (click)="navigateToSection('contact')" style="cursor: pointer">
+      {{ "HEADER.CONTACT" | translate }}
+    </a>
+
+    <div class="language-toggle" (click)="toggleLanguage()">
+      <button class="language-button">
+        <mat-icon> language </mat-icon>
+        <span class="language-text">{{ getCurrentLanguageName() }}</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MENU HAMBURGUER -->
+  <div class="hamburger-menu" (click)="toggleMenu()">
+    <mat-icon>{{ isMenuOpen() ? "close" : "menu" }}</mat-icon>
+  </div>
+</div>

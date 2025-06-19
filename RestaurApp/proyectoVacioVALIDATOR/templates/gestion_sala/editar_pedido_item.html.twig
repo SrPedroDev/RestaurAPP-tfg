@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+    <h1>Editar Pedido</h1>
+    <a href="{{ path('gestion_atencion', { id: item.pedido.atencion.id }) }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+    <div class="container mt-3">
+        <h2>Editar producto: {{ item.nombreProducto }}</h2>
+
+        <form method="POST" class="row g-3">
+            <div class="col-md-4">
+                <label for="cantidad" class="form-label">Cantidad</label>
+                <input type="number" name="cantidad" id="cantidad" class="form-control" min="1" value="{{ item.cantidad }}" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="precioUnitario" class="form-label">Precio unitario (€)</label>
+                <input type="text" name="precioUnitario" id="precioUnitario" class="form-control" pattern="^\d+(\,\d{1,2})?$" value="{{ item.precioUnitario|number_format(2, ',', '.') }}" required>
+                <div class="form-text">Usa coma como separador decimal, ejemplo: 12,50</div>
+            </div>
+
+            <div class="col-md-4 align-self-end">
+                <button type="submit" class="btn btn-success w-100">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

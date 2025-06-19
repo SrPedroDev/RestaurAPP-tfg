@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+    <h2>Detalle de la Reserva</h2>
+    <a href="{{ volverA ?? path('gestion_sala_estado') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+    <div class="card mt-4" style="max-width: 600px; margin: auto;">
+        <div class="card-body">
+            <h5 class="card-title">{{ reserva.nombreCliente }}</h5>
+            <p class="card-text">
+                <strong>Fecha y hora:</strong> {{ reserva.fechaHora|date('d/m/Y H:i') }}<br>
+                <strong>Mesa:</strong> {{ reserva.mesa.identificador }}<br>
+                <strong>Nº Comensales:</strong> {{ reserva.numeroComensales }}<br>
+                <strong>Teléfono:</strong> {{ reserva.telefono }}<br>
+                <strong>Email:</strong> {{ reserva.email }}<br>
+            </p>
+            <form method="POST" action="{{ path('gestion_reserva_eliminar', {'id': reserva.id}) }}" onsubmit="return confirm('¿Seguro que quieres eliminar esta reserva?');">
+                <button class="btn btn-danger">Eliminar Reserva</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

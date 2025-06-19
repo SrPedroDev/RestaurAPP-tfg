@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h2>Crear Reserva Completa</h2>
+<a href="{{ path('gestion_sala_estado') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+
+{% block contenidoApartado %}
+<h2>Crear Reserva Completa</h2>
+
+<form method="POST">
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Teléfono</label>
+        <input type="text" name="telefono" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Número de comensales</label>
+        <input type="number" name="comensales" class="form-control" required min="1">
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{{ path('reserva_opciones', {'id': momento.id}) }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

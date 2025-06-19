@@ -1,0 +1,154 @@
+<div class="contact-section">
+  <div class="section-title">{{ "CONTACT_SECTION.TITLE" | translate }}</div>
+
+  <div class="flex-layout">
+    <div class="content-cell">
+      <div class="contact-container">
+        <div *ngIf="showSuccessMessage" class="success-message">
+          <div class="success-icon">✓</div>
+          <h3>{{ "CONTACT_SECTION.SUCCESS_TITLE" | translate }}</h3>
+          <p>{{ "CONTACT_SECTION.SUCCESS_TEXT" | translate }}</p>
+        </div>
+
+        <form
+          #contactForm
+          (submit)="onSubmit($event)"
+          action="https://formsubmit.co/restaurapp.tfg@gmail.com"
+          method="POST"
+          class="contact-form"
+          *ngIf="!showSuccessMessage"
+        >
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="false" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="{{ 'CONTACT_SECTION.SUBJECT_OPTIONS.DEFAULT' | translate }}"
+          />
+
+          <div class="form-header">
+            <h2>{{ "CONTACT_SECTION.FORM_TITLE" | translate }}</h2>
+            <div class="form-divider"></div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">{{
+                "CONTACT_SECTION.NAME_LABEL" | translate
+              }}</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder="{{
+                  'CONTACT_SECTION.NAME_PLACEHOLDER' | translate
+                }}"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">{{
+                "CONTACT_SECTION.EMAIL_LABEL" | translate
+              }}</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="{{
+                  'CONTACT_SECTION.EMAIL_PLACEHOLDER' | translate
+                }}"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">{{
+              "CONTACT_SECTION.SUBJECT_LABEL" | translate
+            }}</label>
+            <select id="subject" name="subject" class="form-control" required>
+              <option value="">
+                {{ "CONTACT_SECTION.SUBJECT_OPTIONS.DEFAULT" | translate }}
+              </option>
+              <option value="Reserva">
+                {{ "CONTACT_SECTION.SUBJECT_OPTIONS.RESERVA" | translate }}
+              </option>
+              <option value="Evento">
+                {{ "CONTACT_SECTION.SUBJECT_OPTIONS.EVENTO" | translate }}
+              </option>
+              <option value="Menu">
+                {{ "CONTACT_SECTION.SUBJECT_OPTIONS.MENU" | translate }}
+              </option>
+              <option value="Sugerencia">
+                {{ "CONTACT_SECTION.SUBJECT_OPTIONS.SUGERENCIA" | translate }}
+              </option>
+              <option value="Queja">
+                {{ "CONTACT_SECTION.SUBJECT_OPTIONS.QUEJA" | translate }}
+              </option>
+              <option value="Otro">
+                {{ "CONTACT_SECTION.SUBJECT_OPTIONS.OTRO" | translate }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">{{
+              "CONTACT_SECTION.MESSAGE_LABEL" | translate
+            }}</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-control"
+              placeholder="{{
+                'CONTACT_SECTION.MESSAGE_PLACEHOLDER' | translate
+              }}"
+              rows="6"
+              required
+            ></textarea>
+          </div>
+
+          <button #submitButton type="submit" class="submit-btn">
+            <span class="btn-text">{{
+              "CONTACT_SECTION.BUTTON_TEXT" | translate
+            }}</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="info-cell">
+      <div class="contact-info-left">
+        <div class="info-header">
+          <h2>{{ "CONTACT_SECTION.CONTACT_INFO_TITLE" | translate }}</h2>
+          <div class="info-divider"></div>
+        </div>
+        <div class="info-grid-left">
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div class="info-content">
+              <h4>{{ "CONTACT_SECTION.PHONE_LABEL" | translate }}</h4>
+              <p>968 123 456</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">🕒</div>
+            <div class="info-content">
+              <h4>{{ "CONTACT_SECTION.HOURS_LABEL" | translate }}</h4>
+              <p>{{ "CONTACT_SECTION.HOURS_VALUE" | translate }}</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div class="info-content">
+              <h4>{{ "CONTACT_SECTION.EMAIL_LABEL_INFO" | translate }}</h4>
+              <p>restaurapp.tfg&#64;gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

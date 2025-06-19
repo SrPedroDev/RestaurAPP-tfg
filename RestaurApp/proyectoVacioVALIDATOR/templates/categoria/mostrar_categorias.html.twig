@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+  <h4>Categorías en Carta</h4>
+  <p>Explora los platos por categoría.</p>
+{% endblock %}
+
+{% block contenidoApartado %}
+  <div class="row justify-content-center gap-4 mt-4">
+
+    {% for categoria in categorias %}
+      <div class="col-12 col-sm-12 col-md-12 col-lg-5">
+            <a href="{{ path('productos_por_categoria', {'id': categoria.id}) }}" class=" btn btn-light btn-lg btn-outline-dark d-flex align-items-center justify-content-center gap-2 py-2">
+              <img src="{{ asset('images/categorias/' ~ categoria.icono) }}" alt="{{ categoria.nombre }}" style="height: 24px; width: 24px;" />
+              <span class="fw-bold">{{ categoria.nombre }}</span>
+            </a>
+      </div>
+    {% else %}
+      <p class="text-center">No hay categorías disponibles.</p>
+    {% endfor %}
+
+  </div>
+{% endblock %}

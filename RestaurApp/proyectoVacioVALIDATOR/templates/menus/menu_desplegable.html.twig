@@ -1,0 +1,3 @@
+{% for menu in menus %}
+    <a href="{{ path(menu.enlace) }}" class="btn btn-warning w-100 mb-2">{{ menu.titulo }}</a>
+{% endfor %}

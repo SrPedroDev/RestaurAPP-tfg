@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h2 class="mb-4">
+    Disponibilidad del turno - {{ turno.fecha|date('d/m/Y') }} 
+    <span class="text-muted">({{ turno.tipo|capitalize }})</span>
+</h2>
+
+<a href="{{ url('gestion_mostrar_turnos', { 'fecha': turno.fecha|date('Y-m-d') }) }}" class="badge bg-secondary">← VOLVER</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+{% if momentos is empty %}
+    <div class="alert alert-info">No hay momentos de reserva disponibles para este turno.</div>
+{% else %}
+    {% set ahora = "now"|date("U") %}
+    {% set fechaTurno = turno.fecha|date('Y-m-d') %}
+    
+    {% for mesaId, data in momentos %}
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">{{ data.mesa.identificador }}</h5>
+                <span class="text-muted">{{ data.mesa.capacidad }} comensales</span>
+            </div>
+            <div class="card-body p-2">
+                {% for momento in data.momentos %}
+                    {% set fechaHoraFin = (fechaTurno ~ ' ' ~ momento.horaFin|date('H:i:s'))|date('U') %}
+                    
+                    <div class="d-flex justify-content-between align-items-center border-bottom py-2 px-1">
+                        <div class="fw-semibold">
+                            {{ momento.horaInicio|date('H:i') }} - {{ momento.horaFin|date('H:i') }}
+                        </div>
+                        <div>
+                            {% if fechaHoraFin < ahora %}
+                                <span class="badge bg-secondary">Terminado</span>
+                            {% elseif momento.reserva %}
+                                <a href="{{ path('gestion_reserva_eliminar', { id: momento.reserva.id }) }}" class="badge bg-dark">-- Eliminar Reserva --</a>                                
+                                <a href="{{ path('gestion_reserva_detalle', { id: momento.reserva.id }) }}" class="badge bg-danger">Reservado</a>
+                            {% else %}
+                                <a href="{{ path('reserva_opciones', { 'id': momento.id }) }}" class="badge bg-primary"> -- RESERVAR --</a>
+                                <span class="badge bg-success">Libre</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

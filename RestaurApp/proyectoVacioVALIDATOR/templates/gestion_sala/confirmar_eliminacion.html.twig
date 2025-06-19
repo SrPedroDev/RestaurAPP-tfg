@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoApartado %}
+<h2>¿Confirmar eliminación de reserva?</h2>
+
+<div class="alert alert-warning">
+    <p>¿Estás seguro de que deseas eliminar la reserva de <strong>{{ reserva.nombreCliente }}</strong>?</p>
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{{ path('gestion_sala_estado') }}" class="btn btn-warning"> Cancelar</a>
+
+
+</form>
+{% endblock %}

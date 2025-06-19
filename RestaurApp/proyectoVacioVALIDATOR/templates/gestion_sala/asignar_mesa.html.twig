@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h2>Asignar mesa (Reserva directa)</h2>
+<a href="{{ path('gestion_sala_estado') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+
+
+{% block contenidoApartado %}
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre del cliente</label>
+        <input type="text" class="form-control" name="nombre" id="nombre">
+    </div>
+    <button type="submit" class="btn btn-success">Asignar</button>
+    <a href="{{ path('reserva_opciones', {'id': momento.id}) }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

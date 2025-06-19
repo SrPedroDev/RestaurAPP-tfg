@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+{% block cabezaApartado %}
+    <h2>Confirmar cambios en el turno</h2>
+    <a href="{{ path('turnos_mostrar_dia', {'fecha': turno.fecha|date('Y-m-d')}) }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+
+{% block contenidoApartado %}
+
+    <p><strong>Tipo:</strong> {{ turno.tipo }}</p>
+    <p><strong>Horario actual:</strong> {{ turno.horaInicio|date('H:i') }} - {{ turno.horaFin|date('H:i') }}</p>
+    <p><strong>Nuevo horario:</strong> {{ nuevaHoraInicio }} - {{ nuevaHoraFin }}</p>
+
+    <div class="alert alert-danger">
+        <strong>Advertencia:</strong> Este cambio eliminará todas las reservas existentes para este turno.
+    </div>
+
+    <form method="post" action="{{ path('turno_editar_confirmar') }}">
+        <input type="hidden" name="id" value="{{ turno.id }}">
+        <input type="hidden" name="hora_inicio" value="{{ nuevaHoraInicio }}">
+        <input type="hidden" name="hora_fin" value="{{ nuevaHoraFin }}">
+        <input type="hidden" name="reservas_por_turno" value="{{ reservasPorMesa }}">
+        <button type="submit">Confirmar y aplicar cambios</button>
+        <a href="{{ path('turnos_mostrar_dia', {'fecha': turno.fecha|date('Y-m-d')}) }}">Cancelar</a>
+    </form>
+{% endblock %}

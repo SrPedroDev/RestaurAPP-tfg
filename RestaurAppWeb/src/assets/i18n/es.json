@@ -1,0 +1,82 @@
+{
+  "HEADER": {
+    "HOME": "Inicio",
+    "ABOUT": "Sobre nosotros",
+    "CONTACT": "Contacto",
+    "RESERVE": "Reservar"
+  },
+  "LANGUAGES": {
+    "ENGLISH": "Inglés",
+    "SPANISH": "Español"
+  },
+  "LANDPAGE": {
+    "TITLE": "RestaurApp",
+    "TAGLINE": "TAPAS Y TRADICIÓN",
+    "HIGHLIGHT_CUISINE": "Cocina mediterránea",
+    "HIGHLIGHT_WINE": "Selección de vinos",
+    "HIGHLIGHT_FAMILY": "Ambiente familiar",
+    "MENU": "CARTA",
+    "RESERVE": "RESERVAR"
+  },
+  "ABOUT_SECTION": {
+    "TITLE": "Conócenos",
+    "TEXT": "Cada bocado cuenta una historia: la de nuestra tierra, nuestras tradiciones y nuestros sabores. En nuestra cocina mediterránea, lo auténtico cobra vida con ingredientes frescos y pasión por lo bien hecho. Siéntete como en casa mientras disfrutas de una experiencia que alimenta cuerpo y alma."
+  },
+  "CONTACT_SECTION": {
+    "TITLE": "Contacto",
+    "FORM_TITLE": "Envíanos un mensaje",
+    "NAME_LABEL": "Nombre completo",
+    "NAME_PLACEHOLDER": "Tu nombre completo",
+    "EMAIL_LABEL": "Email",
+    "EMAIL_PLACEHOLDER": "tu.email@ejemplo.com",
+    "SUBJECT_LABEL": "Asunto",
+    "SUBJECT_PLACEHOLDER": "Selecciona un asunto",
+    "MESSAGE_LABEL": "Mensaje",
+    "MESSAGE_PLACEHOLDER": "Escribe tu mensaje aquí...",
+    "SUBJECT_OPTIONS": {
+      "DEFAULT": "Selecciona un asunto",
+      "RESERVA": "Consulta sobre reservas",
+      "EVENTO": "Eventos y celebraciones",
+      "MENU": "Consulta sobre el menú",
+      "SUGERENCIA": "Sugerencias",
+      "QUEJA": "Quejas o reclamos",
+      "OTRO": "Otro"
+    },
+    "BUTTON_TEXT": "Enviar mensaje",
+    "SUCCESS_TITLE": "¡Mensaje enviado correctamente!",
+    "SUCCESS_TEXT": "Gracias por contactar con nosotros. Te responderemos pronto.",
+    "CONTACT_INFO_TITLE": "Información de contacto",
+    "PHONE_LABEL": "Teléfono",
+    "HOURS_LABEL": "Horarios",
+    "HOURS_VALUE": "Mar-Dom: 13:00-16:00\n19:00-23:30",
+    "EMAIL_LABEL_INFO": "Email"
+  },
+  "FOOTER": {
+    "FIND_US_TITLE": "Encuéntranos",
+    "RESTAURANT_TYPE": "RestaurApp",
+    "RESTAURANT_DESCRIPTION": "Restaurante de comida mediterránea",
+    "ADDRESS": "C. Maestro Pedro Perez Abadia, 2A, 30100 Murcia",
+    "COPYRIGHT": "© 2025 DAW José Planes. Todos los derechos reservados.",
+    "MAP_TITLE": "Ubicación en IES José Planes"
+  },
+  "DRINKS_SECTION": {
+    "TITLE": "Bebidas",
+    "SUBTITLE": "Acompaña tus platos con nuestra selección de bebidas delicadamente escogidas"
+  },
+  "STARTERS": {
+    "TITLE": "Entrantes",
+    "SUBTITLE": "Comenzamos la experiencia culinaria con una selección de aperitivos que despiertan los sentidos"
+  },
+  "FIRST_COURSES": {
+    "TITLE": "Primeros",
+    "SUBTITLE": "Descubre nuestra selección de primeros platos, pensados para abrir el apetito y sorprenderte"
+  },
+  "MAIN_COURSES": {
+    "TITLE": "Segundos",
+    "SUBTITLE": "Continuamos la experiencia culinaria con una selección de platos perfectamente pensados para tu disfrute"
+  },
+  "DESSERTS": {
+    "TITLE": "Postres",
+    "SUBTITLE": "Endulza tu experiencia con nuestra selección de postres caseros"
+  }
+}

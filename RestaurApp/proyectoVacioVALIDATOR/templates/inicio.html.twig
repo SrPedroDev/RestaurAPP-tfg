@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoApartado %}
+    <div class="d-flex justify-content-center m-4">
+        <div class="text-center">
+            <h1 class="mb-4">Bienvenido{% if app.user %}, {{ app.user.username }}{% endif %}</h1>
+            <p class="lead">Selecciona una opción del menú para comenzar.</p>
+        </div>
+    </div>
+{% endblock %}

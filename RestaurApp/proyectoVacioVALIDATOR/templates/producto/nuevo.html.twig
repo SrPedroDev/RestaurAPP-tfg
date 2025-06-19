@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+  <h4 class="fw-bold text-center">Nuevo Producto</h4>
+  <p class="text-center text-muted">Crea un nuevo producto para la carta.</p>
+{% endblock %}
+
+{% block contenidoApartado %}
+  <div class="row mt-4 justify-content-center">
+    <div class="col-12">
+      <div class="p-4 rounded shadow formulario-producto">
+        {{ form_start(form) }}
+
+        <div class="mb-3">
+            {{ form_label(form.nombre, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+            {{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.nombre) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.descripcion, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+            {{ form_widget(form.descripcion, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.descripcion) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.precio, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+            {{ form_widget(form.precio, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.precio) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.imagen, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+            {{ form_widget(form.imagen, {'attr': {'class': 'form-control', 'accept': 'image/jpeg,image/png,image/webp'}}) }}
+            {{ form_errors(form.imagen) }}
+        </div>
+
+
+        <div class="text-center mt-4">
+            {{ form_widget(form.guardar, {'attr': {'class': 'btn estiloBoton px-4'}}) }}
+        </div>
+
+        {{ form_end(form) }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

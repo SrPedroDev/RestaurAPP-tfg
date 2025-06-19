@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h2>ADMINISTRACION de Turnos del día {{ fecha|date('d/m/Y') }}</h2>
+<a href="{{ path('gestion_turnos') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+
+{% block contenidoApartado %}
+{% for tipo in ['COMIDAS', 'CENAS'] %}
+    <div class="d-flex flex-column align-items-center mt-4">
+        <h3>Turno de {{ tipo|capitalize }}</h3>
+
+        {% if turnos[tipo] %}
+            <p><strong>Inicio:</strong> {{ turnos[tipo].horaInicio|date('H:i') }}</p>
+            <p><strong>Fin:</strong> {{ turnos[tipo].horaFin|date('H:i') }}</p>
+            <p><strong>Reservas por Mesa:</strong> {{ turnos[tipo].reservasPorMesa }}</p>
+
+            <a href="{{ path('turno_editar', { id: turnos[tipo].id }) }}">✏️ Editar</a>
+
+
+            {# Opción 2 (más segura): redirigir a vista de confirmación (descomenta si usas confirmación) #}
+          <a href="{{ path('turno_eliminar', { id: turnos[tipo].id }) }}">🗑️ Confirmar eliminación</a> 
+
+        {% else %}
+            <p>No hay turno de {{ tipo }} creado.</p>
+            <a href="{{ path('turno_crear', { tipo: tipo, fecha: fecha|date('Y-m-d') }) }}">➕ Crear turno</a>
+        {% endif %}
+    </div>
+{% endfor %}
+
+{% endblock %}

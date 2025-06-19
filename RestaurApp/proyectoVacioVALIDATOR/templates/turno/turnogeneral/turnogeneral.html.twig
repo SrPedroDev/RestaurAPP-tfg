@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+<h1>Configurar Turnos Generales</h1>
+<a href="{{ path('inicio_turno') }}" class="badge bg-primary"> -- VOLVER --</a>
+
+{% endblock %}
+
+{% block contenidoApartado %}
+<form method="post" action="{{ path('guardar_turno_general') }}">
+    <h3 class="m-3">Turnos Generales</h3>
+    <p class="m-3">
+        Configura los turnos generales para las COMIDAS y CENAS de cada día. En base a ellos se irán generando los turnos para las reservas.
+        Si se cambian, los turnos ya generados no se modifican automáticamente.
+    </p>
+
+    <table class="table table-light table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Día</th>
+                <th>Inicio COMIDAS</th>
+                <th>Fin COMIDAS</th>
+                <th>Reservas por mesa COMIDAS</th>
+                <th>Inicio CENAS</th>
+                <th>Fin CENAS</th>
+                <th>Reservas por mesa CENAS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dia in dias %}
+                <tr>
+                    <td>{{ dia.nombre }}</td>
+
+                    {% set COMIDAS = turnosPorDiaYTipo[dia.id]['COMIDAS'] ?? null %}
+                    {% set CENAS = turnosPorDiaYTipo[dia.id]['CENAS'] ?? null %}
+
+                    <td><input type="time" name="turnos[{{ dia.id }}][COMIDAS][inicio]" value="{{ COMIDAS ? COMIDAS.horaInicio|date('H:i') : '' }}"></td>
+                    <td><input type="time" name="turnos[{{ dia.id }}][COMIDAS][fin]" value="{{ COMIDAS ? COMIDAS.horaFin|date('H:i') : '' }}"></td>
+                    <td><input type="number" min="1" name="turnos[{{ dia.id }}][COMIDAS][reservas]" value="{{ COMIDAS ? COMIDAS.reservasPorMesa : '' }}"></td>
+
+                    <td><input type="time" name="turnos[{{ dia.id }}][CENAS][inicio]" value="{{ CENAS ? CENAS.horaInicio|date('H:i') : '' }}"></td>
+                    <td><input type="time" name="turnos[{{ dia.id }}][CENAS][fin]" value="{{ CENAS ? CENAS.horaFin|date('H:i') : '' }}"></td>
+                    <td><input type="number" min="1" name="turnos[{{ dia.id }}][CENAS][reservas]" value="{{ CENAS ? CENAS.reservasPorMesa : '' }}"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="submit">Guardar</button>
+</form>
+
+{% endblock %}

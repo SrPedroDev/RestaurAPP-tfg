@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block cabezaApartado %}
+    <h2>{{ editar ? 'Editar Mesa' : 'Crear Nueva Mesa' }}</h2>
+    <a href="{{ path('gestion_mesas_index') }}" class="badge bg-secondary">← Volver</a>
+{% endblock %}
+
+{% block contenidoApartado %}
+    <div class="mt-4" style="max-width: 500px; margin: auto;">
+        {{ form_start(form) }}
+            {{ form_row(form.identificador) }}
+            {{ form_row(form.capacidad) }}
+            {{ form_row(form.operativa) }}
+
+        <button class="btn btn-success">{{ editar ? 'Actualizar' : 'Crear' }}</button>
+        <a href="{{ path('gestion_mesas_index') }}" class="btn btn-secondary">Volver</a>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

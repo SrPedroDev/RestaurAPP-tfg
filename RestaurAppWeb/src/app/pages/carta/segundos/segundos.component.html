@@ -1,0 +1,34 @@
+<div class="entrantes-container">
+  <div class="menu-header">
+    <div class="section-title">
+      {{ "MAIN_COURSES.TITLE" | translate }}
+    </div>
+    <div class="menu-divider"></div>
+    <p class="menu-subtitle">
+      {{ "MAIN_COURSES.SUBTITLE" | translate }}
+    </p>
+  </div>
+
+  <div class="entrantes-grid">
+    <mat-card *ngFor="let segundo of segundos" class="entrante-card">
+      <div class="imagen-container">
+        <img
+          mat-card-image
+          [src]="segundo.imagen"
+          [alt]="segundo.nombre"
+          class="entrante-imagen"
+        />
+        <div class="precio-overlay">
+          <span class="precio">{{ segundo.precio }}€</span>
+        </div>
+      </div>
+
+      <mat-card-content class="card-content">
+        <div class="entrante-header">
+          <h3 class="entrante-nombre">{{ segundo.nombre }}</h3>
+        </div>
+        <p class="entrante-descripcion">{{ segundo.descripcion }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

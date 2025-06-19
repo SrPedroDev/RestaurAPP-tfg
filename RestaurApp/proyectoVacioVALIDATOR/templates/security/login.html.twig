@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iniciar sesión | RestaurApp</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      background-image: url("/images/restaurapp.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .restaurapp-logo {
+      max-height: 60px;
+    }
+
+    .estiloBoton {
+      background-color: rgb(250, 185, 63);
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container text-center">
+    <img src="/images/restaurapp-logo.png" alt="RestaurApp logo" class="restaurapp-logo mb-3">
+    <h2 class="mb-3">Bienvenido a RestaurApp</h2>
+    <p class="text-muted mb-4">Por favor, inicia sesión para continuar</p>
+
+    {% if error %}
+      <div class="alert alert-danger">
+        {{ error.messageKey|trans(error.messageData, 'security') }}
+      </div>
+    {% endif %}
+
+    <form method="post">
+      <div class="mb-3 text-start">
+        <label for="username" class="form-label">Usuario</label>
+        <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" required autofocus>
+      </div>
+
+      <div class="mb-4 text-start">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" name="_password" id="password" class="form-control" required>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn estiloBoton text-white">Entrar</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
